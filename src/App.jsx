@@ -31,21 +31,23 @@ function App() {
 
   return (
     <div className="app">
-      <div style={{fontSize: "3rem", marginBottom: 10}}>{cash}</div>
-      <div style={{display: "flex"}}>
-        <button onClick={() => addCash(Number(prompt()))}>Пополнить счет</button>
-        <button onClick={() => getCash(Number(prompt()))}>Снять со счета</button>
-        <button onClick={() => addCustomer(prompt())}>Добавить клиента</button>
-        <button onClick={() => dispatch(fetchCustomers())}>Получить клиетов из базы</button>
+      <div className="cash">{cash}</div>
+      <div className="btns">
+        <button className="btn" onClick={() => addCash(Number(prompt()))}>Пополнить счет</button>
+        <button className="btn" onClick={() => getCash(Number(prompt()))}>Снять со счета</button>
+        <button className="btn" onClick={() => addCustomer(prompt())}>Добавить клиента</button>
+        <button className="btn" onClick={() => dispatch(fetchCustomers())}>Получить клиетов из базы</button>
       </div>
       {customers.length > 0 ?
-        <div>
+        <div className="customers">
           {customers.map(customer =>
-            <div onClick={() => removeCustomer(customer)}style={{fontSize:"2rem", border: "1px solid black", padding: "10px", marginTop: 5}}>{customer.name}</div>)}
+            <div onClick={() => removeCustomer(customer)} className="customer">{customer.name}</div>)}
         </div>
         :
-        <div style={{fontSize: "2rem", marginTop: 20}}>
-          No clients!
+        <div className="customers">
+          <div className="customer">
+            No clients!
+          </div>
         </div>
       }
     </div>
